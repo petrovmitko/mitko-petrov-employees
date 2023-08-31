@@ -1,0 +1,27 @@
+.table-wrapper {
+    width: 80%;
+    height: 400px;
+    overflow-y: auto;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    .input-data-vsialization-table {
+        width: 100%;
+        thead tr th{
+            background: #1c1c1c;
+            color: white;
+            border: none;
+            padding: 10px 0;
+        }
+        tbody tr td {
+            text-align: center;
+            padding: 6px 0;
+        }
+        tbody tr {
+            background: #d3e0ed;
+            color: black;
+            &:nth-child(even) {
+                background: #82a4c1;
+            }
+        }
+    }
+}

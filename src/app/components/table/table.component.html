@@ -1,0 +1,14 @@
+<div class="table-wrapper">
+    <table class="input-data-vsialization-table">
+        <thead>
+          <tr>
+            <th *ngFor="let title of headerData">{{title}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of data">
+            <td *ngFor="let item of row">{{ item }}</td>
+          </tr>
+        </tbody>
+    </table>
+</div>

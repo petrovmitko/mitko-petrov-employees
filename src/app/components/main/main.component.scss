@@ -1,0 +1,56 @@
+@mixin btn($bg){
+    padding: 6px 14px;
+    text-align: center;
+    background: $bg;
+    margin-right: 6px;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.wrapper {
+    width: 1180px;
+    margin: 0 auto;
+    background: #8080802e;
+    min-height: 100vh;
+    padding-bottom: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    .action-box {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        padding: 40px 20px;
+        .input-file {
+            display: none;
+            position: absolute;
+            top: -1000;
+            left: -1000;
+            &-label {
+                @include btn(#5bcdb3);
+            }
+        }
+        &-bottom {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            button {
+                @include btn(rgb(221, 94, 94));
+            }
+        }
+    }
+    .file-name-wrapper {
+        width: 80%;
+        margin: 0 auto;
+        padding: 10px 0 16px;
+        .error-msg {
+            color: rgb(221, 94, 94);
+        }
+    }
+   
+}

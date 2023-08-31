@@ -1,0 +1,18 @@
+<div class="wrapper">
+    <div class="action-box">
+      <div class="custom-file-input">
+        <label class="input-file-label" for="fileInput">Import File</label>
+        <input type="file" id="fileInput" class="input-file" (change)="onFileSelected($event)">
+      </div>
+    </div>
+    <div class="file-name-wrapper">
+        <h4>{{ selectedFileName }}</h4>
+        <h6 *ngIf="unsuportedFile" class="error-msg">Unsupported File Format</h6>
+    </div>
+    <app-table [headerData]="initialLoadColumnsInfo" [data]="inputTableData"></app-table>
+    <div class="action-box-bottom">
+      <button (click)="getResults()">Click here for Results</button>
+    </div>
+
+    <app-table *ngIf="resultData.length" [headerData]="resultColumnsInfo" [data]="resultData"></app-table>
+  </div>
