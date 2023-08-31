@@ -70,7 +70,7 @@ export class MainComponent {
     
   }
 
-  getWorkedDays(start: string, end: string): any { 
+  getWorkedDays(start: string, end: string): number { 
     const isEndNull = !end || end.toLowerCase() === 'null';  
     const startDate = moment(start).utc();
     const endDate = !isEndNull ? moment(end).utc() : moment().utc();
