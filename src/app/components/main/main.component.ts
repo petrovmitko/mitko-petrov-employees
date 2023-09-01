@@ -48,15 +48,16 @@ export class MainComponent {
   }
 
   getResults(): void {
-    const allEmpByProject = this.inputTableData.reduce((a: IDataType, c: string[]) => {
-      const [ employeeId, projectId, start, end ] = c;
-      if(a && a[projectId] && a[projectId][employeeId]) {
-        return {...a, [projectId]: { ...a[projectId], [employeeId]: a[projectId][employeeId] + this.getWorkedDays(start, end)}}
+    const allEmpByProject = this.inputTableData.reduce((accumulator: IDataType, currentvalue: string[]) => {
+      const [ employeeId, projectId, start, end ] = currentvalue;
+      if(accumulator && accumulator[projectId] && accumulator[projectId][employeeId]) {
+        return {...accumulator, [projectId]: { ...accumulator[projectId], 
+          [employeeId]: accumulator[projectId][employeeId] + this.getWorkedDays(start, end)}}
       }
-      return {...a, [projectId]: {...a[projectId], [employeeId]: this.getWorkedDays(start, end)}}
+      return {...accumulator, [projectId]: {...accumulator[projectId], [employeeId]: this.getWorkedDays(start, end)}}
  
     }, {});
-    console.log(allEmpByProject)
+    
     this.resultData = Object.entries(allEmpByProject).filter(item => {
       // filter projects with less than 2 employees worked on
       return Object.keys(item[1]).length > 1;
